@@ -14,7 +14,7 @@ merge: .bootstrapped $(wildcard *.in) $(wildcard dot.*)
 	$G merge upstream/master
 
 	$G checkout -b travis-snapshot
-	find emacs-snapshot -type f -exec sed -i 's/setuid/**bleeeep**/g' {} +
+	#find emacs-snapshot -type f -exec sed -i 's/setuid/**bleeeep**/g' {} +
 	for f in $(filter-out $<,$^); do \
 		case $$f in *.in) d=$${f%.in};; dot.*) d=$${f#dot};; esac \
 		; sed 1d "$$f" >emacs-snapshot/"$$d" \
