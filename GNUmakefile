@@ -20,7 +20,7 @@ merge: .bootstrapped $(wildcard *.in) $(wildcard dot.*)
 		; sed 1d "$$f" >emacs-snapshot/"$$d" \
 	; done
 	$G add $(patsubst dot.%,.%,$(patsubst %.in,%, $(filter-out $<,$^)))
-	$G commit -m "Prepare for Travis $$(date +%c)" -a
+	$G commit -m "Prepare for Travis $$(date +%c) $$(git describe)" -a
 
 	$G push -f origin travis-snapshot
 
