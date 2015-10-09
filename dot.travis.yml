@@ -1,0 +1,10 @@
+# Template for emacs-snapshot/.travis.yml
+language: c
+sudo: false
+branches:
+  only:
+    - travis-snapshot
+script:
+  - ./autogen.sh
+  - ./configure --without-all --without-x --with-x-toolkit=no
+  - make -j2 V=0 install
